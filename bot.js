@@ -24,14 +24,10 @@ client.on('ready', () => {
 })
 
 client.on("message", message => {
-    if (!message.content.startsWith(prefix)) return;
     if (message.author.bot) return;
-    if (message.channel.type !== "text") return message.reply("This Command Is Only Allowed In Servers");
     var args = message.content.split(" ");
-    var command = args[0].slice(prefix.length);
-    switch(command) {
-        case "r#set" :
-        if (message.member.hasPermission("MANAGE_ROLES")) return message.reply("no no");
+  if (message.content === "r#set") {
+        if (message.member.hasPermission("MANAGE_ROLES")) return message.reply("للاسف لا تمتلك صلاحية MANAGE_ROLES");
         message.guild.createRole({name : "rainbow", color : "RANDOM"}).then(r => {
             r.edit({color : "RANDOm"});
             suck[message.guild.id] = {role : r.id};
@@ -39,7 +35,7 @@ client.on("message", message => {
     };
 });
 client.on("message", message => {
-  if (message.content === "d!help") {
+  if (message.content === "r#help") {
 message.author.send(`**
 r#set 
  - لإنشاء رتبة الرينبو وبدا الرينبو
