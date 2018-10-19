@@ -20,7 +20,7 @@ client.on('ready', () => {
                 };
             };
         });
-    }, 1500);
+    }, 4000);
 })
 
 client.on("message", message => {
