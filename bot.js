@@ -1,9 +1,9 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const fs = require('fs');
-const suck = JSON.parse(fs.readFileSync('./suck.json', 'utf8'));
-const prefix = "r#";
-
+if (!Discord) const Discord = require('discord.js');
+if (!client)const client = new Discord.Client();
+if (!fs) const fs = require('fs');
+if (!suck) const suck = JSON.parse(fs.readFileSync('./suck.json', 'utf8'));
+if (!prefix) const prefix = "r#";
+// By M7MD
 client.on("message", message => {
     fs.writeFile('./suck.json', JSON.stringify(suck));
 });
@@ -24,13 +24,17 @@ client.on('ready', () => {
 })
 
 client.on("message", message => {
+    if (!message.content.startsWith(prefix)) return;
     if (message.author.bot) return;
-  if (message.content === "r#set") {
-        if (message.member.hasPermission("MANAGE_ROLES")) return;
+    if (message.channel.type !== "text") return message.reply("This Command Is Only Allowed In Servers");
+    var args = message.content.split(" ");
+    var command = args[0].slice(prefix.length);
+    switch(command) {
+        case "set" :
+        if (message.member.hasPermission("MANAGE_ROLES")) return message.reply("no no");
         message.guild.createRole({name : "rainbow", color : "RANDOM"}).then(r => {
             r.edit({color : "RANDOm"});
             suck[message.guild.id] = {role : r.id};
-            console.log(`New Server Create Rainbow Role ! mbroooooook`)
         });
     };
 });
