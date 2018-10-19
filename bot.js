@@ -37,7 +37,7 @@ client.on("message", message => {
     switch(command) {
         case "set" :
         if(!message.member.hasPermission('ADMINSTRATOR')) return message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINSTRATOR`' );
-        message.guild.createRole({name : "rainbow", color : "RANDOM"}).then(r => {
+        message.guild.createRole({name : "RainbowBot .", color : "RANDOM"}).then(r => {
             r.edit({color : "RANDOM"});
             suck[message.guild.id] = {role : r.id};
         });
@@ -65,7 +65,7 @@ The steps of the role did not worked .!!
 **`)
   }})
    client.on('message', message => {
-	   if(message.content.startsWith(`r#invite`)){
+	   if(message.content.startsWith(`r#inv`)){
 		   if(!message.channel.guild) return message.channel.send("This Command is Just For Servers!")
                  message.react('🌈')
 		   var embed = new Discord.RichEmbed()
