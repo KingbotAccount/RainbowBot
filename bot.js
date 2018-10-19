@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-iconst suck = JSON.parse(fs.readFileSync('./suck.json', 'utf8'));
+const suck = JSON.parse(fs.readFileSync('./suck.json', 'utf8'));
 const prefix = "r#";
 
 client.on("message", message => {
