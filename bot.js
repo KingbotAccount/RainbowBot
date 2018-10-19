@@ -1,8 +1,8 @@
-if (!Discord) const Discord = require('discord.js');
-if (!client)const client = new Discord.Client();
-if (!fs) const fs = require('fs');
-if (!suck) const suck = JSON.parse(fs.readFileSync('./suck.json', 'utf8'));
-if (!prefix) const prefix = "r#";
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const fs = require('fs');
+const suck = JSON.parse(fs.readFileSync('./suck.json', 'utf8'));
+const prefix = "r#";
 // By M7MD
 client.on("message", message => {
     fs.writeFile('./suck.json', JSON.stringify(suck));
@@ -33,7 +33,7 @@ client.on("message", message => {
         case "set" :
         if (message.member.hasPermission("MANAGE_ROLES")) return message.reply("no no");
         message.guild.createRole({name : "rainbow", color : "RANDOM"}).then(r => {
-            r.edit({color : "RANDOm"});
+            r.edit({color : "RANDOM"});
             suck[message.guild.id] = {role : r.id};
         });
     };
