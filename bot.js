@@ -57,5 +57,5 @@ The steps of the role did not worked .!!
 رآبط البوت - Bot Invite link
 - http://cutt.us/RainbowBott
 **`)
-
+  }})
 client.login(process.env.BOT_TOKEN)
