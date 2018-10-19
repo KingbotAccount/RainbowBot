@@ -40,6 +40,7 @@ client.on("message", message => {
 });
 client.on("message", message => {
   if (message.content === "r#help") {
+      message.react('🌈')
 message.author.send(`**
 r#set 
  - لإنشاء رتبة الرينبو وبدا الرينبو
