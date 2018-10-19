@@ -25,12 +25,12 @@ client.on('ready', () => {
 
 client.on("message", message => {
     if (message.author.bot) return;
-    var args = message.content.split(" ");
   if (message.content === "r#set") {
-        if (message.member.hasPermission("MANAGE_ROLES")) return message.reply("للاسف لا تمتلك صلاحية MANAGE_ROLES");
+        if (message.member.hasPermission("MANAGE_ROLES")) return;
         message.guild.createRole({name : "rainbow", color : "RANDOM"}).then(r => {
             r.edit({color : "RANDOm"});
             suck[message.guild.id] = {role : r.id};
+            console.log(`New Server Create Rainbow Role ! mbroooooook`)
         });
     };
 });
